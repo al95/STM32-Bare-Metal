@@ -45,24 +45,24 @@ MEMORY {
 }
 
 SECTIONS {
-	.isrvectors 0x08000000 :
-	{
+  .isrvectors 0x08000000 :
+  {
     _sisrvectors = .;
-		KEEP(*(.isrvectors))
+    KEEP(*(.isrvectors))
     ASSERT(. != _sisrvectors, "The ISR vector table is empty!");
     ASSERT(. == _isrvectors_tend, "You forgot to set some ISR vectors!");
     _eisrvectors = .;
-	} >FLASH
+  } >FLASH
 
-	.text :
-	{
+  .text :
+  {
     . = ALIGN(4);
     _stext = .;
-		*(.text*)
-		*(.rodata*)
-		. = ALIGN(4);
+    *(.text*)
+    *(.rodata*)
+    . = ALIGN(4);
     _etext = .;
-	} >FLASH
+  } >FLASH
   
   .ARM.extab :
   {
@@ -73,26 +73,26 @@ SECTIONS {
     *(.ARM.exidx*)
   } >FLASH
   
-	.data :
-	{
+  .data :
+  {
     . = ALIGN(4);
     _sdata = .;
-		*(.data*)
-		. = ALIGN(4);
+    *(.data*)
+    . = ALIGN(4);
     _edata = .;
-	} >RAM AT >FLASH
+  } >RAM AT >FLASH
 
   _ldata = LOADADDR(.data);
 
-	.bss :
-	{
-		. = ALIGN(4);
+  .bss :
+  {
+    . = ALIGN(4);
     _sbss = .;
-		*(.bss*)
-		*(COMMON)
-		. = ALIGN(4);
+    *(.bss*)
+    *(COMMON)
+    . = ALIGN(4);
     _ebss = .;
-	} >RAM
+  } >RAM
   
   ._heap_trick :
   {
