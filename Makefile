@@ -71,6 +71,7 @@ STUTIL_PORT = 4242
 DBG_OPTFLAGS = -O0
 REMOVE_OBJS = Y
 VERBOSE = N
+CROSS_COMPILE = arm-none-eabi-
 
 
 
@@ -83,8 +84,8 @@ VERBOSE = N
 SRCS += $(INIT_SRC)
 SRCS += $(OTHER_SRCS)
 
-OBJS =  $(addsuffix .o, $(basename $(SRCS)))
-SUS =   $(addsuffix .su, $(basename $(OBJS)))
+OBJS = $(addsuffix .o,  $(basename $(SRCS)))
+SUS  = $(addsuffix .su, $(basename $(OBJS)))
 
 CFLAGS += -mcpu=cortex-m3 -mthumb -mabi=aapcs
 CFLAGS += -Wall -Wextra
@@ -95,7 +96,6 @@ LDFLAGS += -march=armv7-m -mabi=aapcs
 LDFLAGS += -nostartfiles -nostdlib -lgcc
 LDFLAGS += -T$(LINKER_SCRIPT)
 
-CROSS_COMPILE = arm-none-eabi-
 CC = $(CROSS_COMPILE)gcc
 LD = $(CROSS_COMPILE)ld
 OBJDUMP = $(CROSS_COMPILE)objdump
