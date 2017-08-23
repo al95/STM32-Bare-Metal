@@ -72,6 +72,8 @@ DBG_OPTFLAGS = -O0
 REMOVE_OBJS = Y
 VERBOSE = N
 CROSS_COMPILE = arm-none-eabi-
+STFLASH = st-flash
+STUTIL = st-util
 
 
 
@@ -104,8 +106,6 @@ SIZE = $(CROSS_COMPILE)size
 GDB = $(CROSS_COMPILE)gdb
 
 ECHO = echo
-STFLASH = st-flash
-STUTIL = st-util
 RM = rm
 
 ifeq ($(VERBOSE),Y)
