@@ -181,7 +181,6 @@ clean:
 	$(SILENCE)$(RM) -f $(TARGET).lst
 	$(SILENCE)$(RM) -f $(TARGET).dis
 	$(SILENCE)$(RM) -f $(TARGET).map
-	$(SILENCE)$(RM) -f $(TARGET).o
 	$(SILENCE)$(RM) -f $(OBJS)
 	$(SILENCE)$(RM) -f $(SUS)
 
