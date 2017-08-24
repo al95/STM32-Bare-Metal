@@ -49,8 +49,7 @@ SECTIONS {
   {
     _sisrvectors = .;
     KEEP(*(.isrvectors))
-    ASSERT(. != _sisrvectors, "The ISR vector table is empty!");
-    ASSERT(. == _isrvectors_tend, "You forgot to set some ISR vectors!");
+    ASSERT(. == _isrvectors_tend, "The vector table needs to be 84 elements long!");
     _eisrvectors = .;
   } >FLASH
 
