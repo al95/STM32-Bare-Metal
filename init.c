@@ -179,11 +179,6 @@ __attribute__ ((noreturn)) void ResetHandler(void){
   char *dst = &_sdata;
   char *src = &_ldata;
   
-  // Uncomment the correct line to choose which debug interface you want to use
-  //BIT_CLR(AFIO->MAPR, BIT_26 | BIT_25 | BIT_24);     // use SW and JTAG
-  BIT_CLR_SET(AFIO->MAPR, BIT_26 | BIT_24, BIT_25);    // use SW only
-  //BIT_CLR_SET(AFIO->MAPR, BIT_25 | BIT_24, BIT_26);  // disable SW and JTAG
-  
   // enable 8-byte stack alignment to comply with AAPCS
   BIT_SET(SCB->CCR, BIT_9);
   
